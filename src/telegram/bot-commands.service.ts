@@ -23,10 +23,10 @@ export class BotCommandsService implements OnModuleInit {
   }
 
   private startPolling() {
-    // Poll every 3 seconds
+    // Poll every 10 seconds (less aggressive to avoid conflicts)
     this.pollingInterval = setInterval(() => {
       this.pollUpdates();
-    }, 3000);
+    }, 10000);
   }
 
   private async pollUpdates() {
