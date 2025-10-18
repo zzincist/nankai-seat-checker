@@ -12,9 +12,10 @@ export class SeatCheckerCron {
     private readonly telegramService: TelegramService,
   ) {}
 
-  // Run every 5 minutes (for testing - change to '0 8 * * *' for daily 8am)
-  @Cron('*/5 * * * *', {
+  // Run twice daily at 8am and 8pm
+  @Cron('0 8,20 * * *', {
     name: 'daily-seat-check',
+    timeZone: 'Asia/Singapore', // Adjust to your timezone
   })
   async checkSeatsDaily() {
     const targetDate = new Date('2025-10-26');
